@@ -1,24 +1,53 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+def LoginUser(request):
+    if request.user.username=="":
+        return render(request,"index.html")
+    else:
+        return HttpResponseRedirect("/homepage")
 
-def index(request):
-	return render(request,'index.html')
+@login_required(login_url="/loginuser/")
+def HomePage(request):
+    return render(request, "director/inicio.html")
 
-def inicio(request):
-	return render(request,'director/inicio.html')	
-
+@login_required(login_url="/loginuser/")    
 def alumnos(request):
-	return render(request,'director/alumnos.html')	
+    return render(request, "director/alumnos.html")  
 
-def Ralumnos(request):
-	return render(request,'director/registroAlumno.html')			
-
+@login_required(login_url="/loginuser/")    
 def pagos(request):
-	return render(request,'director/pagos.html')	
+    return render(request, "director/pagos.html")  
 
-def pagosP(request):
-	return render(request,'director/pagosPeriodo.html')	
+@login_required(login_url="/loginuser/")
+def registro(request):
+    return render(request, "director/registroAlumno.html")            
 
-def pagosA(request):
-	return render(request,'director/pagosAlumno.html')					
+def pagoalumno(request):
+    return render(request, "director/pagosAlumno.html")            
+
+
+def clicklogin(request):
+    if request.method!="POST":
+        return HttpResponse("<h1> Methoid not allowed<h1>")
+    else:
+        username = request.POST.get('username','')
+        password = request.POST.get('password','')
+        
+        user=authenticate(username=username,password=password)
+        if user!=None:
+            login(request,user)
+            return HttpResponseRedirect('/homepage')
+        else:
+            messages.error(request, "Invalid Login")
+            return HttpResponseRedirect('/loginuser')
+
+def LogoutUser(request):
+    logout(request)
+    request.user=None
+    return HttpResponseRedirect("/loginuser")            

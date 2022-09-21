@@ -15,21 +15,21 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFC501">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="http://127.0.0.1:8000/2/"><img src="{%static '/img/desarrollo-servicios-web.png'%}" width="60px" height="60px"></a>
+			<a class="navbar-brand" href="/homepage"><img src="{%static '/img/desarrollo-servicios-web.png'%}" width="60px" height="60px"></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/3/">Alumnos</a>
+						<a class="nav-link active" aria-current="page" href="/alumnos">Alumnos</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle active" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Pagos
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-							<li><a class="dropdown-item" href="http://127.0.0.1:8000/5/">Pagos Totales</a></li>
+							<li><a class="dropdown-item" href="/pagos">Pagos Totales</a></li>
 							<li><a class="dropdown-item" href="http://127.0.0.1:8000/6/">Pagos por periodo</a></li>
 						</ul>
 					</li>
@@ -44,7 +44,7 @@
 					</li>
 				</ul>
 				<form class="d-flex">
-					<button class="btn btn-outline-dark" type="submit"><a href="http://127.0.0.1:8000/" style="color: black;">Salir</a></button>
+					<button class="btn btn-outline-dark" type="submit"><a href="/logout" style="color: black;">Salir</a></button>
 				</form>
 			</div>
 		</div>
@@ -56,12 +56,13 @@
 
 	{%endblock%}
 
+	<br>
+	<br>
 	<nav aria-label="Page navigation example">
 		<div class="card-footer text-muted" style="background-color:#FFC501" align="center">
 			<label style="font-family: Times New Roman; color: black;">Centro de Capacitación en Especialidades Túristicas S.C.</label>
 		</div>
 	</nav>
-
 
 	<script  src="{%static '/js/jquery-3.6.1.min.js'%}"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

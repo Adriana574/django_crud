@@ -2,49 +2,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-	{% include "header.html" %}
+  {% include "header.html" %}
 </head>
 <body>
-	<br>
-	<br>
-	<div id="container">
-		<section class="vh-100">
+  <br>
+  <br>
+  <div id="container">
+    <section class="vh-100">
 
-			<div class="col-md-10 col-lg-5 col-xl-5 offset-xl-4">
-				<div class="container py-5 h-100">
-					<div class="row d-flex align-items-center justify-content-center h-100">
-						<div class="col-md-8 col-lg-7 col-xl-6">
-							<img src="{%static 'img/desarrollo-servicios-web.png'%}" class="img-fluid" alt="Phone image" width="350px" style="border-radius: 50%">
-						</div>
-						<form id="frmLogin" method="post" onsubmit=" ">
+      <div class="col-md-10 col-lg-5 col-xl-5 offset-xl-4">
+        <div class="container py-5 h-100">
+          <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+              <img src="{%static 'img/desarrollo-servicios-web.png'%}" class="img-fluid" alt="Phone image" width="350px" style="border-radius: 50%">
+            </div>
+            <form action="/clicklogin" method="post">
+              {% csrf_token %}
+              <!-- Usuario -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form1Example13" style="font-size: 20px">Usuario</label>
+                <input type="text"  name="username"  class="form-control form-control-lg" required="" />
+              </div>
+              <!-- Password -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form1Example23" style="font-size: 20px">Password</label>
+                <input type="password"  name="password" class="form-control"  required="" />
+              </div>
+              <!-- Submit button -->
+              <div align="center">
+               <button type="submit" class="btn btn-dark">Login</button>
+                {% for message in messages %}
+                          {% if message.tags == 'error' %}
+                            {{ message }}
+                            {% endif %}
+                           {% endfor %}
+              </div>
 
-							<!-- Usuario -->
-							<div class="form-outline mb-4">
-								<label class="form-label" for="form1Example13" style="font-size: 20px">Usuario</label>
-								<input type="text" id="usuario" name="usuario" class="form-control form-control-lg" required="" />
-							</div>
+            </form>
+          </div>
+        </div>
+      </div>
 
-							<!-- Password -->
-							<div class="form-outline mb-4">
-								<label class="form-label" for="form1Example23" style="font-size: 20px">Password</label>
-								<input type="password" id="password" name="password" class="form-control"  required="" />
-							</div>
+    </section>
+  </div>
 
-
-							<!-- Submit button -->
-							<div align="center">
-								<button type="submit" class="btn btn-primary btn-lg btn-block"><a href="http://127.0.0.1:8000/2/" style="color: white;">Iniciar Sesión</a></button>
-							</div>
-
-						</form>
-					</div>
-				</div>
-			</div>
-
-		</section>
-	</div>
-
-	{% include "footer.html" %}
+  {% include "footer.html" %}
 
 </body>
 </html>
