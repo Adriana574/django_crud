@@ -1,17 +1,19 @@
-footer {
-  background-color: rgb(255, 197, 1);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-  flex: 0 0 auto;
-}
-
-img{
-  border-radius: 5%;
-}
-
-nav{
+header{
   background-color: rgba(0, 0, 0, 0.05);
   flex: 0 0 auto;
 }
+
+.container{
+  flex: 1 0 auto;
+  min-height: calc(100% - 4rem);
+  width:960px;
+}
+
+
+img{
+  border-radius: 5%;
+  width: 200px;
+  height: 50px;
+}
+
+

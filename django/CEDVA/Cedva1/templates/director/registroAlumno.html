@@ -5,126 +5,117 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="card">
-    <br>
-      <h5 class="card-header">Registrar Alumno</h5>
-      <div class="card-body">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Datos Generales</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Domicilio</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Tutor</button>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="row">
-              <div class="form-group col-md-6">
-                <label>Matricula</label>
-                <input type="text" name="" class="form-control">
-                <label>Segundo Nombre</label>
-                <input type="text" name="" class="form-control">
-                <label>Apellido Materno</label>
-                <input type="text" name="" class="form-control">
-                <label> Edad</label>
-                <input type="number" name="" class="form-control">
-                <label> Final de Curso </label>
-                <input type="date" name="" class="form-control">
-                <label> Observaciones </label>
-                <input type="text" name="" class="form-control">
+    <div>
+      <div>
+        <div class="card">
+          <div class="card-header">
+            Registrar Alumnos
+          </div>
+          <div class="card-body">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Datos Generales</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Domicilio</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Tutor</button>
               </div>
-
-              <div class="form-group col-md-6">
-                <label>Nombre</label>
-                <input type="text" name="" class="form-control">
-                <label>Apellido Paterno</label>
-                <input type="text" name="" class="form-control">
-                <label> Especialidad</label>
-                <select class="form-select">
-                  <option selected>Seleccione una especialidad </option>
-                  <option>Bachillerato</option>
-                  <option>Mecanica Dicel</option>
-                  <option>Mecanica Gasolina</option>
-                  <option>Mecanica de Motos</option>
-                  <option>Ing Mecanica</option>
-                </select>
-                <label> Inicio de Curso </label>
-                <input type="date" name="" class="form-control">
-                <label> Contraseña </label>
-                <input type="password" name="" class="form-control">
-                <label> Convenio </label>
-                <input type="text" name="" class="form-control">
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label style="text-align: center;">Matricula</label>
+                    <input type="text" name="" class="form-control">
+                    <label style="text-align: center;">Segundo Nombre</label>
+                    <input type="text" name="" class="form-control">
+                    <label style="text-align: center;">Apellido Materno</label>
+                    <input type="text" name="" class="form-control">
+                    <label>Edad</label>
+                    <input type="number" name="" class="form-control">
+                    <label>Final de Curso</label>
+                    <input type="date" name="" class="form-control">
+                    <label>Observaciones</label>
+                    <input type="text" name="" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>Nombre</label>
+                    <input type="text" name="" class="form-control">
+                    <label>Apellido Paterno</label>
+                    <input type="text" name="" class="form-control">
+                    <label> Especialidad</label>
+                    <select class="form-select">
+                      <option selected>Seleccione una especialidad </option>
+                      <option>Bachillerato</option>
+                      <option>Mecanica Dicel</option>
+                      <option>Mecanica Gasolina</option>
+                      <option>Mecanica de Motos</option>
+                      <option>Ing Mecanica</option>
+                    </select>
+                    <label> Inicio de Curso </label>
+                    <input type="date" name="" class="form-control">
+                    <label> Contraseña </label>
+                    <input type="password" name="" class="form-control">
+                    <label> Convenio </label>
+                    <input type="text" name="" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label>Calle</label>
+                    <input type="text" name="" class="form-control">
+                    <label>Colonia</label>
+                    <input type="text" name="" class="form-control">
+                    <label>Codigo Postal</label>
+                    <input type="text" name="" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>No. Interior</label>
+                    <input type="text" name="" class="form-control">
+                    <label>Delegación o Municipio</label>
+                    <input type="text" name="" class="form-control">
+                    <label>Ciudad o Estado</label>
+                    <select class="form-select">
+                      <option>Ciudad de México</option>
+                      <option>Estado de México</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label>Nombre</label>
+                    <input type="text" name="" class="form-control">
+                    <label>Apellido Materno</label>
+                    <input type="text" name="" class="form-control">
+                    <label>Télefono</label>
+                    <input type="number" name="" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>Apellido Paterno</label>
+                    <input type="text" name="" class="form-control">
+                    <label>Padre o Tutor</label>
+                    <select class="form-select">
+                      <option>Padre</option>
+                      <option>Madre</option>
+                      <option>Tutor</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
-
+            <br>
+            <div align="center">
+              <button type="button" class="btn btn-success"><a href="#" style="color: white;">Go somewhere</a></button>
+            </div>
           </div>
-          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-            <div class="row">
-              <div class="form-group col-md-6">
-               <label>Calle</label>
-               <input type="text" name="" class="form-control">
-               <label> Colonia</label>
-               <input type="text" name="" class="form-control">
-               <label>Codigo postal </label>
-               <input type="text" name="" class="form-control">
-             </div>
-
-             <div class="form-group col-md-6">
-              <label>No. Interior</label>
-              <input type="text" name="" class="form-control">
-              <label>Delegacion o Municipio</label>
-              <input type="text" name="" class="form-control">
-              <label> Ciudad y Estado </label>
-              <select class="form-select">
-               <option>Ciudad de México</option>
-               <option>Estado de México</option>
-             </select>
-           </div>
-         </div>
-
-       </div>
-       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-
-        <div class="row">
-          <div class="form-group col-md-6">
-           <label>Nombre</label>
-           <input type="text" name="" class="form-control">
-           <label> Apellido Materno</label>
-           <input type="text" name="" class="form-control">
-           <label>Telefono </label>
-           <input type="text" name="" class="form-control">
-         </div>
-
-         <div class="form-group col-md-6">
-          <label>Apellido Parterno</label>
-          <input type="text" name="" class="form-control">
-          <label>Padre o tutor</label>
-          <select class="form-select">
-            <option>Padre</option>
-            <option>Madre</option>
-            <option>Tutor</option>
-          </select>
         </div>
       </div>
     </div>
-    <br>
-    <div align="center">
-      <a href="#" class="btn btn-primary">Guardar</a>
-    </div>
   </div>
 </div>
-</div>
-</div>
-</div>
-<br>
 
 {%endblock%}
 
-<br>
-<br>
 

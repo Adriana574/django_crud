@@ -5,6 +5,10 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from . models import *
 
 def LoginUser(request):
     if request.user.username=="":
@@ -51,3 +55,19 @@ def LogoutUser(request):
     logout(request)
     request.user=None
     return HttpResponseRedirect("/loginuser")            
+
+class AlumnoListView(ListView):
+    model = Alumno
+    template_name='director/alumnos.html'
+    context_object_name='listas'
+
+class Actualizar(UpdateView):
+    model=Alumno
+    template_name='director/actualiza.html'
+    context_object_name='cancion'
+    fields=('nombre', 'apellidoP', 'apellidoM')
+
+class Eliminar(DeleteView):
+    model=Alumno
+    template_name='director/AlumnoElimina.html'
+    success_url=reverse_lazy('listar')
