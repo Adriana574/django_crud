@@ -24,14 +24,8 @@
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="/alumnos">Alumnos</a>
 					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle active" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Pagos
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-							<li><a class="dropdown-item" href="/pagos">Pagos Totales</a></li>
-							<li><a class="dropdown-item" href="http://127.0.0.1:8000/6/">Pagos por periodo</a></li>
-						</ul>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/pagos">Pagos</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle active" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,7 +38,7 @@
 					</li>
 				</ul>
 				<form class="d-flex">
-					<button class="btn btn-outline-dark" type="submit"><a href="/logout" style="color: black;">Salir</a></button>
+					<button class="btn btn-outline-danger" type="submit"><a href="/logout" style="color: black;">Salir</a></button>
 				</form>
 			</div>
 		</div>
@@ -68,6 +62,18 @@
 	<script type="text/javascript">
 		$(document).ready( function () {
 			$('#table').DataTable();
+		} );
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready( function () {
+			$('#tableAl').DataTable();
+		} );
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready( function () {
+			$('#tableP').DataTable();
 		} );
 	</script>
 </body>

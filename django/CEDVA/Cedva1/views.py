@@ -8,7 +8,9 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from . models import *
+from . models import * 
+from django.contrib.admin.views.decorators import staff_member_required
+
 
 def LoginUser(request):
     if request.user.username=="":
@@ -16,22 +18,26 @@ def LoginUser(request):
     else:
         return HttpResponseRedirect("/homepage")
 
-@login_required(login_url="/loginuser/")
+@staff_member_required(login_url="/loginuser/") 
 def HomePage(request):
     return render(request, "director/inicio.html")
+    
 
-@login_required(login_url="/loginuser/")    
+@staff_member_required(login_url="/loginuser/")   
 def alumnos(request):
     return render(request, "director/alumnos.html")  
 
-@login_required(login_url="/loginuser/")    
+
+@staff_member_required(login_url="/loginuser/")  
 def pagos(request):
     return render(request, "director/pagos.html")  
 
-@login_required(login_url="/loginuser/")
+@staff_member_required(login_url="/loginuser/") 
 def registro(request):
     return render(request, "director/registroAlumno.html")            
 
+
+@staff_member_required(login_url="/loginuser/") 
 def pagoalumno(request):
     return render(request, "director/pagosAlumno.html")            
 
@@ -46,16 +52,21 @@ def clicklogin(request):
         user=authenticate(username=username,password=password)
         if user!=None:
             login(request,user)
-            return HttpResponseRedirect('/homepage')
+            if request.user.is_staff:
+                return HttpResponseRedirect('/homepage')
+            else:      
+                return HttpResponseRedirect('1inicio')  
         else:
             messages.error(request, "Invalid Login")
-            return HttpResponseRedirect('/loginuser')
+            return HttpResponseRedirect('/')
+        
 
 def LogoutUser(request):
     logout(request)
     request.user=None
     return HttpResponseRedirect("/loginuser")            
 
+#@login_required(login_url="/loginuser/") 
 class AlumnoListView(ListView):
     model = Alumno
     template_name='director/alumnos.html'
@@ -70,4 +81,20 @@ class Actualizar(UpdateView):
 class Eliminar(DeleteView):
     model=Alumno
     template_name='director/AlumnoElimina.html'
-    success_url=reverse_lazy('listar')
+    success_url=reverse_lazy('alumnos')
+
+class AlumnoPListView(ListView):
+    model =Alumno
+    template_name='director/pagos.html'
+    context_object_name='listas'
+
+class AlumnoPagoListView(ListView):
+    model =Pago
+    template_name='director/pagosAlumno.html'
+    context_object_name='listas'
+
+class Actualizarpago(UpdateView):
+    model=Pago
+    template_name='director/actualizaPago.html'
+    context_object_name='pago' 
+    fields=('folio', 'tipoPago', 'monto','fechaPago','mesPagado','horapago')  

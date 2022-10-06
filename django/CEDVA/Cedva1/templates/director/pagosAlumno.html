@@ -10,7 +10,7 @@
 		
 	</div>
 	<br>
-	<table class="table table-striped table-hover">
+	<table class="table table-striped table-hover" id="tablePa">
 		<thead class="table-dark" align="center">
 			<tr>
 				<th scope="col">Id</th>
@@ -23,56 +23,38 @@
 			</tr>
 		</thead>
 		<tbody align="center">
+			{% for i in listas %}
 			<tr>
-				<th scope="row">1</th>
-				<td>Mark</td>
-				<td>Otto</td>
-				<td>Moto</td>
-				<td>---</td>
-				<td>---</td>
-				<td><button><i class="fa-regular fa-pen-to-square"></i></button></td>
-			
+				<td>{{i.idpago}}</td>
+				<td>{{i.folio}}</td>
+				<td>{{i.tipoPago}}</td>
+				<td>{{i.monto}}</td>
+				<td>{{i.fechaPago}}</td>
+				<td>{{i.mesPagado}}</td>
+				<td>{{i.horapago}}</td>
+				<td><button class="btn btn-warning"><a href="{{i.pk}}/pago" style="color: black">ACTUALIZAR</a></button></td>
 			</tr>
-			<tr>
-				<th scope="row">2</th>
-				<td>Jacob</td>
-				<td>Thornton</td>
-				<td>@fat</td>
-				<td>---</td>
-				<td>---</td>
-				<td><button><i class="fa-regular fa-pen-to-square"></i></button></td>
-				
-			</tr>
-			<tr>
-				<th scope="row">3</th>
-				<td>Larry the Bird</td>
-				<td>el pajarito</td>
-				<td>@twitter</td>
-				<td>---</td>
-				<td>---</td>
-				<td><button><i class="fa-regular fa-pen-to-square"></i></button></td>
-			
-			</tr>
+			{%endfor%}
 		</tbody>
 	</table>
 
 </div>
 <div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Modal title</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>Modal body text goes here.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
 </div>
 {%endblock%}
 

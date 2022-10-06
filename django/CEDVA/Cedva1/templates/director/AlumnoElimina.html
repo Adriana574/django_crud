@@ -1,0 +1,21 @@
+{%extends 'director/base.html'%}
+{% load static %}
+{% block content %}
+<div class="container">
+	<div class="alert alert-primary" role="alert">
+		<h2>Eliminar: {{ object.nombre }}</h2>
+	</div>
+</div>
+<div class="container">
+	<form method="POST">
+	<div class="alert alert-primary" role="alert">
+		{% csrf_token %} 
+		<p>¿Seguro que desea eliminar: <strong>{{ object.nombre }}</strong>?</p>
+		<button onclick="elimina()" class="btn btn-success">Borrar</button>
+	</div>
+</form>
+<p>
+	<button onclick="location.href='alumnos'" class="btn btn-secondary"> CANCELAR </button>
+</p>
+</div>
+{% endblock %}

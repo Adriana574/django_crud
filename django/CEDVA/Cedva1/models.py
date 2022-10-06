@@ -8,6 +8,9 @@ class Tutor(models.Model):
 	apellidoM=models.CharField(max_length=100)
 	telefono=models.CharField(max_length=100)
 
+	def __unicode__():
+         return '{}'.format(self.idtutor)
+
 
 class Direccion(models.Model):
 	iddireccion=models.BigAutoField(primary_key=True,  blank=False)
@@ -20,20 +23,18 @@ class Direccion(models.Model):
 	ciudadOestado=models.CharField(max_length=100)
 
 
-
 class Usuario(models.Model):
 	idusuario=models.BigAutoField(primary_key=True,  blank=False)
 	user=models.CharField(max_length=100)
 	password=models.CharField(max_length=100)
 	tipo=models.IntegerField()
 		
-						
+
 class Escuela(models.Model):
 	idescuela=models.BigAutoField(primary_key=True)
 	plantel=models.CharField(max_length=100)
 
 
-		
 
 class Especialidad(models.Model):
 	idespecialidad=models.BigAutoField(primary_key=True)
@@ -56,7 +57,7 @@ class Alumno(models.Model):
 	idescuela = models.ForeignKey(Escuela, related_name="subcategories",blank=True , null= True, on_delete=models.CASCADE )
 	idespecialidad = models.ForeignKey(Especialidad,related_name="subcategories1",blank=True , null= True, on_delete=models.CASCADE )
 	iddireccion= models.ForeignKey(Direccion,related_name="subcategories2",blank=True , null= True, on_delete=models.CASCADE )
-	idtutor= models.ForeignKey(Escuela,related_name="subcategories3",blank=True , null= True, on_delete=models.CASCADE )
+	idtutor= models.ForeignKey(Tutor,related_name="subcategories3",blank=True , null= True, on_delete=models.CASCADE )
 	idusuario= models.ForeignKey(Usuario,related_name="subcategories4",blank=True , null= True, on_delete=models.CASCADE )
 	matricula=models.CharField(max_length=100,blank=True)
 	nombre=models.CharField(max_length=100)
