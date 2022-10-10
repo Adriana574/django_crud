@@ -20,28 +20,7 @@ def LoginUser(request):
 
 @staff_member_required(login_url="/loginuser/") 
 def HomePage(request):
-    return render(request, "director/inicio.html")
-    
-
-@staff_member_required(login_url="/loginuser/")   
-def alumnos(request):
-    return render(request, "director/alumnos.html")  
-
-
-@staff_member_required(login_url="/loginuser/")  
-def pagos(request):
-    return render(request, "director/pagos.html")  
-
-@staff_member_required(login_url="/loginuser/") 
-def registro(request):
-    return render(request, "director/registroAlumno.html")            
-
-
-@staff_member_required(login_url="/loginuser/") 
-def pagoalumno(request):
-    return render(request, "director/pagosAlumno.html")            
-
-
+    return render(request, "director/inicio.html") 
 def clicklogin(request):
     if request.method!="POST":
         return HttpResponse("<h1> Methoid not allowed<h1>")
@@ -66,35 +45,4 @@ def LogoutUser(request):
     request.user=None
     return HttpResponseRedirect("/loginuser")            
 
-#@login_required(login_url="/loginuser/") 
-class AlumnoListView(ListView):
-    model = Alumno
-    template_name='director/alumnos.html'
-    context_object_name='listas'
-
-class Actualizar(UpdateView):
-    model=Alumno
-    template_name='director/actualiza.html'
-    context_object_name='cancion'
-    fields=('nombre', 'apellidoP', 'apellidoM')
-
-class Eliminar(DeleteView):
-    model=Alumno
-    template_name='director/AlumnoElimina.html'
-    success_url=reverse_lazy('alumnos')
-
-class AlumnoPListView(ListView):
-    model =Alumno
-    template_name='director/pagos.html'
-    context_object_name='listas'
-
-class AlumnoPagoListView(ListView):
-    model =Pago
-    template_name='director/pagosAlumno.html'
-    context_object_name='listas'
-
-class Actualizarpago(UpdateView):
-    model=Pago
-    template_name='director/actualizaPago.html'
-    context_object_name='pago' 
-    fields=('folio', 'tipoPago', 'monto','fechaPago','mesPagado','horapago')  
+#@login_required(login_url="/loginuser/")

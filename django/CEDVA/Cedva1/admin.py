@@ -8,7 +8,11 @@ from .models import Administrador
 from .models import Alumno
 from .models import Pago
 
-admin.site.register(Tutor)
+class TutorAdmin(admin.ModelAdmin):
+	readonly_fields=('created','update')
+	
+		
+admin.site.register(Tutor,TutorAdmin)
 admin.site.register(Direccion)
 admin.site.register(Usuario)
 admin.site.register(Escuela)
