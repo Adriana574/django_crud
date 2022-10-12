@@ -1,11 +1,13 @@
-from django.forms import ModelForm, Textarea
+from django.forms import ModelForm
 from Cedva1.models import *
 
 
-class TutorForm(ModelForm):
+class FormularioAlumno(ModelForm):
     class Meta:
         model = Tutor
-        fields = "__all__"
-        widgets = {
-            'name': Textarea(attrs={'cols': 80, 'rows': 20}),
-        }
+        fields = ('nombreT', 'apellidoPT', 'apellidoMT', 'telefono', 'padreT')
+
+class FormularioDireccion(ModelForm):
+    class Meta:
+        model = Direccion
+        fields = ('calle', 'lote', 'manzana', 'colonia', 'delegacionMunicipio', 'codigopostal', 'ciudadOestado')

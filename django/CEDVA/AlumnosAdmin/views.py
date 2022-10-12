@@ -13,6 +13,7 @@ from django.views.generic import DetailView
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic.base import TemplateView
 from django.urls import reverse
+from AlumnosAdmin.forms import FormularioAlumno, FormularioDireccion
 
     
 @staff_member_required  
@@ -29,15 +30,6 @@ class ver(TemplateView):
         context['Direccion'] = Direccion.objects.get(pk=pk)
         context['Alumno'] = Alumno.objects.get(pk=pk)
         return context 
- 
-@staff_member_required 
-def registro(request):
-    return render(request, "registroAlumno.html")   
-
-class TutorCreateView(CreateView):
-    template_name='crearTutor.html'
-    model = Tutor
-    fields ="__all__"
 
 
 #@login_required(login_url="/loginuser/") 
@@ -64,7 +56,35 @@ class Eliminar(DeleteView):
     def get_success_url(self):
         return reverse('alumnos')
     
-class AlumnoListView(ListView):
-    model = Alumno
-    template_name='alumnos.html'
-    context_object_name='listas'
+
+def registrarAlumno(request):
+    form = FormularioAlumno(request.POST or None)
+    if form.is_valid():
+        form_data = form.cleaned_data
+        nt = form_data.get("nombreT")
+        apt = form_data.get("apellidoPT")
+        amt = form_data.get("apellidoMT") 
+        tel = form_data.get("telefono") 
+        pt = form_data.get("padreT") 
+                
+        obj = Tutor.objects.create(nombreT=nt, apellidoPT=apt, apellidoMT=amt, telefono=tel, padreT=pt)
+
+    Dirform = FormularioDireccion(request.POST or None)
+    if Dirform.is_valid():
+        form_data = Dirform.cleaned_data
+        cal = form_data.get("calle")
+        lot = form_data.get("lote")
+        manz = form_data.get("manzana")
+        col = form_data.get("colonia")
+        dm = form_data.get("delegacionMunicipio")
+        cp1 = form_data.get("codigopostal")
+        cie = form_data.get("ciudadOestado")
+
+        obj2 = Direccion.objects.create(calle=cal, lote=lot, manzana=manz, colonia=col, delegacionMunicipio=dm, codigopostal=cp1, ciudadOestado=cie)
+
+    context = {
+        'form': form,
+        'Dirform': Dirform
+    }
+        
+    return render(request, "registroAlumno.html", context)

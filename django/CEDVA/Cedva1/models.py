@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 
 class Tutor(models.Model):
@@ -7,6 +8,7 @@ class Tutor(models.Model):
 	apellidoPT=models.CharField(max_length=100)
 	apellidoMT=models.CharField(max_length=100)
 	telefono=models.CharField(max_length=100)
+	padreT=models.CharField(max_length=100)
 	created=models.DateTimeField(auto_now_add=True)
 	update=models.DateTimeField(auto_now_add=True)
 
